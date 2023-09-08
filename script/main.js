@@ -97,10 +97,10 @@ const animationTimeline = () => {
     })
     .staggerTo(
         ".hbd-chatbox span",
-        1.5, {
+        2.5, {
             visibility: "visible",
         },
-        0.05
+        0.1
     )
     .to(".fake-btn", 0.1, {
         backgroundColor: "rgb(127, 206, 248)",
