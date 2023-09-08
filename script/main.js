@@ -1,5 +1,22 @@
 // trigger to play music in the background with sweetalert
 window.addEventListener('load', () => {
+    // Swal.fire({
+    //     // title: 'Do you want to play music in the background?',
+    //     // text: "You won't be able to revert this!",
+    //     // icon: 'warning',
+    //     // showCancelButton: true,
+    //     // confirmButtonColor: '#3085d6',
+    //     // cancelButtonColor: '#d33',
+    //     // confirmButtonText: 'Yes',
+    //     // cancelButtonText: 'No',
+    // }).then((result) => {
+    //     if (result.isConfirmed) {
+    //         document.querySelector('.song').play();
+    //         animationTimeline();
+    //     } else {
+    //         animationTimeline();
+    //     }
+    // });
     animationTimeline();
 });
 
@@ -7,12 +24,12 @@ window.addEventListener('load', () => {
 // animation timeline
 const animationTimeline = () => {
     // split chars that needs to be animated individually
-    // const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
+    const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
     const hbd = document.getElementsByClassName("wish-hbd")[0];
 
-    // textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
-    //     .split("")
-    //     .join("</span><span>")}</span`;
+    textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
+        .split("")
+        .join("</span><span>")}</span`;
 
     hbd.innerHTML = `<span>${hbd.innerHTML
         .split("")
@@ -75,78 +92,71 @@ const animationTimeline = () => {
         scale: 0.2,
         opacity: 0,
     })
-    .to(".four",
-        0.7,
-        {
-            opacity: 0,
-            y: 10
+    .from(".fake-btn", 0.3, {
+        scale: 0.2,
+        opacity: 0,
+    })
+    .staggerTo(
+        ".hbd-chatbox span",
+        1.5, {
+            visibility: "visible",
         },
-    "+=8")
-    // .from(".fake-btn", 0.3, {
-    //     scale: 0.2,
-    //     opacity: 0,
-    // })
-    // .staggerTo(
-    //     ".hbd-chatbox span",
-    //     1, {
-    //         visibility: "visible",
-    //     },
-    //     0.1
-    // )
-    // .to(".fake-btn", 0.1, {
-    //     backgroundColor: "rgb(127, 206, 248)",
-    // },
-    // "+=4")
-    // .to(
-    //     ".four",
-    //     0.5, {
-    //         scale: 0.2,
-    //         opacity: 0,
-    //         y: -150
-    //     },
-    // "+=1")
-    // .from(".idea-1", 0.7, ideaTextTrans)
-    // .to(".idea-1", 0.7, ideaTextTransLeave, "+=2.5")
-    // .from(".idea-2", 0.7, ideaTextTrans)
-    // .to(".idea-2", 0.7, ideaTextTransLeave, "+=2.5")
-    // .from(".idea-3", 0.7, ideaTextTrans)
-    // .to(".idea-3 strong", 0.5, {
-    //     scale: 1.2,
-    //     x: 10,
-    //     backgroundColor: "rgb(21, 161, 237)",
-    //     color: "#fff",
-    // })
-    // .to(".idea-3", 0.7, ideaTextTransLeave, "+=2.5")
-    // .from(".idea-4", 0.7, ideaTextTrans)
-    // .to(".idea-4", 0.7, ideaTextTransLeave, "+=2.5")
-    // .from(
-    //     ".idea-5",
-    //     0.7, {
-    //         rotationX: 15,
-    //         rotationZ: -10,
-    //         skewY: "-5deg",
-    //         y: 50,
-    //         z: 10,
-    //         opacity: 0,
-    //     },
-    //     "+=1.5"
-    // )
-    // .to(
-    //     ".idea-5 span",
-    //     0.7, {
-    //         rotation: 90,
-    //         x: 8,
-    //     },
-    //     "+=1.4"
-    // )
-    // .to(
-    //     ".idea-5",
-    //     0.7, {
-    //         scale: 0.2,
-    //         opacity: 0,
-    //     },
-    //     "+=2"
-    // )
+        0.05
+    )
+    .to(".fake-btn", 0.1, {
+        backgroundColor: "rgb(127, 206, 248)",
+    },
+    "+=4")
+    .to(
+        ".four",
+        0.5, {
+            scale: 0.2,
+            opacity: 0,
+            y: -150
+        },
+    "+=1")
+    .from(".idea-1", 0.7, ideaTextTrans)
+    .to(".idea-1", 0.7, ideaTextTransLeave, "+=2.5")
+    .from(".idea-2", 0.7, ideaTextTrans)
+    .to(".idea-2", 0.7, ideaTextTransLeave, "+=2.5")
+    .from(".idea-3", 0.7, ideaTextTrans)
+    .to(".idea-3 strong", 0.5, {
+        scale: 1.2,
+        x: 10,
+        backgroundColor: "rgb(21, 161, 237)",
+        color: "#fff",
+    })
+    .to(".idea-3", 0.7, ideaTextTransLeave, "+=2.5")
+    .from(".idea-4", 0.7, ideaTextTrans)
+    .to(".idea-4", 0.7, ideaTextTransLeave, "+=2.5")
+    .from(
+        ".idea-5",
+        0.7, {
+            rotationX: 15,
+            rotationZ: -10,
+            skewY: "-5deg",
+            y: 50,
+            z: 10,
+            opacity: 0,
+        },
+        "+=1.5"
+    )
+    .to(
+        ".idea-5 span",
+        0.7, {
+            rotation: 90,
+            x: 8,
+        },
+        "+=1.4"
+    )
+    .to(
+        ".idea-5",
+        0.7, {
+            scale: 0.2,
+            opacity: 0,
+        },
+        "+=2"
+    )
     .staggerFrom(
         ".idea-6 span",
         0.8, {
